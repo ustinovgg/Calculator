@@ -30,7 +30,7 @@ import java.io.IOException;
                 calculator.setResult();
                 Utils.outputInConsole(calculator.result.getNumber());
             } else {
-                throw new MyCalculatorException("Numbers in different number systems");
+                throw new MyCalculatorException("используются одновременно разные системы счисления");
             }
         }
     }

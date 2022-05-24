@@ -11,7 +11,7 @@
             this.operation = operation;
         }
 
-        public void setResult() {
+        public void setResult() throws MyCalculatorException {
             if (x instanceof RomeNumber) {
                 result = new RomeNumber();
             } else result = new ArabicNumber();
@@ -19,7 +19,7 @@
             result.setNumber(result.getValue());
         }
 
-        private int computation() {
+        private int computation() throws MyCalculatorException {
             return switch (this.operation) {
                 case ADDITION -> addition();
                 case DIVISION -> division();
@@ -34,7 +34,12 @@
         }
 
         @Override
-        public int subtraction() {
+        public int subtraction() throws MyCalculatorException {
+            int result = x.getValue() - y.getValue();
+            if (result < 0 && (x instanceof RomeNumber && y instanceof RomeNumber)){
+
+               throw new MyCalculatorException("Римская цифра не может быть отрицательной");
+            }
             return x.getValue() - y.getValue();
         }
 

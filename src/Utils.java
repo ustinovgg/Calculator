@@ -7,12 +7,14 @@ import java.util.Locale;
 
     public class Utils {
 
+
+
         public static String inputFromConsole() throws MyCalculatorException, IOException {
             String string;
             try(BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
                 string = reader.readLine();
             }
-            if (string.isEmpty()) throw new MyCalculatorException("You entered an empty line");
+            if (string.isEmpty()) throw new MyCalculatorException("строка не является математической операцией");
             return string;
         }
 
